@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Grandista';
+    src: url('/static/fonts/Grandista.ttf') format('truetype');
+}
+
+.logo-text {
+    font-family: 'Grandista', monospace;
+    font-size: 1.5rem;
+}
+
+.vertical-line {
+    border-left: 1px solid rgba(0, 0, 0,.75);
+    height: 30px;
+}
