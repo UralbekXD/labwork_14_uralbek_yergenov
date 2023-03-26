@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     # Libraries
     'crispy_forms',
     'crispy_bootstrap5',
+    "phonenumber_field",
 
     # Apps
     'accounts',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -130,8 +132,14 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/uploads/'
+
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Default primary key field type
