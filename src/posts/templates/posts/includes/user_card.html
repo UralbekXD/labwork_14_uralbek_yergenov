@@ -1,0 +1,20 @@
+<div class="card border-0 bg-transparent">
+    <div class="header px-3 py-2 d-flex align-items-center">
+        <div class="avatar">
+            <img class="avatar user-select-none" src="{{ user_search.avatar.url }}" alt="avatar">
+        </div>
+        <div class="info ms-3">
+            <div class="username">
+                <strong>
+                    <a href="{% url 'profile' user_search.pk %}">
+                        {{ user_search.username }}
+                    </a>
+                </strong>
+            </div>
+            <div class="full_name">
+                {{ user_search.get_full_name }}
+            </div>
+        </div>
+    </div>
+</div>
+

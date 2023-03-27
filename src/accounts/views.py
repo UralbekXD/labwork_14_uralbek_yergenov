@@ -1,6 +1,6 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth import login, logout, get_user_model, authenticate
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import View, CreateView, TemplateView, DetailView
 
 from .forms import LoginForm, SignUpForm
 
@@ -43,8 +43,16 @@ class SignUpView(CreateView):
             user = form.save()
             login(request, user)
             return redirect('index')
-        context = {'form': form}
-        return self.render_to_response(context)
+
+        return self.render_to_response(context={
+            'form': form
+        })
 
     def get_success_url(self):
         return reverse('index')
+
+
+class ProfileDetailView(DetailView):
+    model = get_user_model()
+    template_name = 'accounts/user_detail.html'
+    context_object_name = 'user_obj'

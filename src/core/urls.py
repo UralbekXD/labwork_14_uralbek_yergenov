@@ -18,10 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from posts.views import IndexView
+from posts.views import PostsListView
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
+    path('', PostsListView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('posts/', include('posts.urls')),

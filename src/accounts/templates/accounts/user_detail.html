@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Профиль
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/user_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row border-bottom pb-4 justify-content-center gy-4">
+        <div class="col-12 col-md-10">
+
+            <div class="info d-flex flex-wrap">
+                <div class="avatar-profile me-5">
+                    <img src="{{ user_obj.avatar.url }}" alt="avatar" class="user-select-none">
+                </div>
+
+                <div class="detail flex-grow-1">
+                    <div class="username d-flex align-items-center flex-wrap">
+                        <span class="lead fs-3">{{ user_obj.username }}</span>
+                        <a href="#" class="btn btn-sm btn-light border ms-3">
+                            Редактировать профиль
+                        </a>
+
+                        <form action="{% url 'follow' %}" method="POST">
+                            <button type="submit">
+                                Подписаться
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="counters d-flex gap-4 flex-wrap mb-3">
+                        <div class="posts">
+                            {{ user_obj.posts.all.count }} публикаций
+                        </div>
+                        <div class="followers">
+                            {{ user_obj.followers.all.count }} подписчиков
+                        </div>
+                        <div class="following">
+                            {{ user_obj.following.all.count }} подписок
+                        </div>
+                    </div>
+
+                    <div class="about">
+                        <p class="mb-1 fw-bold">
+                            {{ user_obj.get_full_name }}
+                        </p>
+                        <p>{{ user_obj.about }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12">
+            <div class="row g-3">
+                {% for user_post in user_obj.posts.all %}
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
+                        {% include 'accounts/includes/post_mini_card.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

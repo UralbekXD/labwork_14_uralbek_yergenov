@@ -24,7 +24,7 @@
 <body class="bg-light">
 
     <!-- Header -->
-    <nav class="navbar p-3 navbar-expand-lg bg-white border-bottom">
+    <nav class="navbar p-2 navbar-expand-lg bg-white border-bottom">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
                 <img src="{% static 'img/logo.svg' %}" class="logo" alt="logo">
@@ -32,20 +32,87 @@
                 <span class="logo-text ms-3">Instagram</span>
             </a>
 
-{#            <form class="ms-auto" role="search">#}
-{#                <label class="search-input">#}
-{#                    <input type="email" class="form-control bg-light rounded-1 py-1" placeholder="Поиск">#}
-{#                </label>#}
-{#                <input type="submit" hidden>#}
-{#            </form>#}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <ul class="navbar-nav ms-auto gap-2">
-                <li class="nav-item">
-                    <a href="" class="text-black">
-                        <i class="fa-regular fa-user fa-xl"></i>
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ms-auto gap-4 d-flex ">
+                    <!-- Поиск -->
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#search">
+                        <span role='button' class="text-black"
+                           data-bs-toggle="tooltip"
+                           data-bs-title="Поиск"
+                           data-bs-placement="left"
+                        >
+
+                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                        </span>
+                    </li>
+
+                    <!-- Модальное окно поиска -->
+                    {% include 'includes/search_modal.html' %}
+
+
+                    {% if user.is_authenticated %}
+                        <!-- Создать пост -->
+                        <li class="nav-item">
+                            <a href="{% url 'post_add' %}" class="text-black"
+                               data-bs-toggle="tooltip"
+                               data-bs-title="Создать пост"
+                               data-bs-placement="bottom"
+                            >
+
+                                <i class="fa-solid fa-circle-plus fa-xl"></i>
+                            </a>
+                        </li>
+
+                        <!-- Профиль -->
+                        <li class="nav-item">
+                            <a href="{% url 'profile' user.pk %}" class="text-black"
+                               data-bs-toggle="tooltip"
+                               data-bs-title="{{ user.username }}"
+                               data-bs-placement="bottom"
+                            >
+
+                                <i class="fa-regular fa-user fa-xl"></i>
+                            </a>
+                        </li>
+
+                        <!-- Выйти -->
+                        <li class="nav-item">
+                            <a href="{% url 'logout' %}" class="text-black"
+                               data-bs-toggle="tooltip"
+                               data-bs-title="Выйти"
+                               data-bs-placement="right"
+                            >
+                                <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <!-- Войти -->
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="text-black"
+                               data-bs-toggle="tooltip"
+                               data-bs-title="Войти"
+                               data-bs-placement="bottom"
+                            >
+                                <i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i>
+                            </a>
+                        </li>
+                        <!-- Регистрация -->
+                        <li class="nav-item">
+                            <a href="{% url 'signup' %}" class="text-black"
+                               data-bs-toggle="tooltip"
+                               data-bs-title="Регистрация"
+                               data-bs-placement="right"
+                            >
+                                <i class="fa-solid fa-user-plus fa-xl"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -56,11 +123,15 @@
         {% endblock %}
     </div>
 
+
     <!-- FontAwesome Icons -->
     <script src="https://kit.fontawesome.com/c33425c91c.js" crossorigin="anonymous"></script>
 
     <!-- Boostrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+    <!-- Всплывающие меня подсказки -->
+    <script src="{% static 'javascript/tooltip.js' %}"></script>
 </body>
 </html>

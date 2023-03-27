@@ -34,15 +34,17 @@
     height: 100%;
 }
 
-.post-image {
-    max-height: 750px;
-
+.user-select-none {
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+.post-image {
+    max-height: 750px;
 }
 
 .fa-comment {
@@ -78,4 +80,8 @@
     border: none;
     background: none;
     font-weight: 500;
+}
+
+.full_name {
+    font-size: 14px;
 }

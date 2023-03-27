@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Пользователи
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center gy-2">
+        {% for user_search in users %}
+            <div class="col-12 col-md-10">
+                {% include 'posts/includes/user_card.html' %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
