@@ -50,9 +50,24 @@ class Account(AbstractUser):
     )
 
     following = models.ManyToManyField(
-        verbose_name='Подписчики',
+        blank=True,
         to='accounts.Account',
+        verbose_name='Подписчики',
         related_name='followers',
+    )
+
+    liked_posts = models.ManyToManyField(
+        blank=True,
+        to='posts.Post',
+        related_name='liked_users',
+        verbose_name='Понравившиеся публикации',
+    )
+
+    commented_posts = models.ManyToManyField(
+        blank=True,
+        to='posts.Post',
+        related_name='commented_users',
+        verbose_name='Прокомментированные публикации',
     )
 
     class Meta:

@@ -3,6 +3,11 @@
     src: url('/static/fonts/Grandista.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Instagram Sans';
+    src: url('/static/fonts/Instagram Sans.ttf') format('truetype');
+}
+
 .logo-text {
     font-family: 'Grandista', monospace;
     font-size: 1.5rem;
@@ -11,4 +16,66 @@
 .vertical-line {
     border-left: 1px solid rgba(0, 0, 0, .75);
     height: 30px;
+}
+
+.card {
+    font-family: "Instagram Sans", sans-serif;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.avatar img {
+    border: 1px solid rgba(0, 0, 0, .25);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.post-image {
+    max-height: 750px;
+
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.fa-comment {
+    transform: scaleX(-1);
+}
+
+.fa-comment:hover {
+    color: dodgerblue;
+}
+
+.fa-heart:hover {
+    color: red;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.post-comment-form {
+    width: 100%;
+}
+
+.post-comment-input {
+    border: none;
+    outline: none;
+}
+
+.post-comment-input::placeholder {
+    font-weight: 400;
+}
+
+.post-comment-button {
+    border: none;
+    background: none;
+    font-weight: 500;
 }

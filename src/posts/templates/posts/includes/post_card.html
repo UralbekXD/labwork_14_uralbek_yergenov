@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="col-12 col-lg-10">
+    <div class="card rounded-1">
+        <div class="header px-3 py-2 border-bottom d-flex align-items-center">
+            <div class="avatar">
+                <img class="avatar" src="{{ post.author.avatar.url }}" alt="avatar">
+            </div>
+            <div class="username ms-3">
+                <strong>
+                    {{ post.author }}
+                </strong>
+            </div>
+        </div>
+
+        <div class="body py-0 d-flex justify-content-center bg-black">
+            <img class="post-image img-fluid" src="{{ post.images.url }}" alt="img">
+        </div>
+
+        <div class="footer border-top px-3 pt-2">
+            <div class="actions d-flex align-items-center mb-2">
+                <div class="like">
+                    <i class="fa-regular fa-heart fa-lg"></i>
+                </div>
+
+                <div class="comment ms-3">
+                    <i class="fa-regular fa-comment fa-lg"></i>
+                </div>
+            </div>
+
+            <p class="likes">
+                {{ post.liked_users.all.count }} отметок "Нравиться"
+            </p>
+
+            <p class="description">
+                <strong class="me-1">
+                    {{ post.author }}
+                </strong>
+                {{ post.description|truncatechars:256 }}
+            </p>
+
+            <p class="date text-muted">
+                {{ post.created_at }}
+            </p>
+        </div>
+
+        <form action="" class="post-comment-form border-top p-3 d-flex flex-wrap">
+            <input type="text" class="post-comment-input flex-grow-1" placeholder="Добавьте комментарий...">
+            <button type="submit" class="post-comment-button text-primary">Опубликовать</button>
+        </form>
+    </div>
+</div>
