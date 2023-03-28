@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import get_user_model
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
 from posts.models import Post
@@ -34,8 +34,11 @@ class PostsListView(ListView):
         return context
 
     def get_queryset(self):
-        user = self.request.user
-        return Post.objects.exclude(author=user).order_by('-created_at')
+        account = get_user_model()
+        user = account.objects.get(pk=self.request.user.pk)
+        followed_users = user.following.all()
+        posts = Post.objects.filter(author__in=followed_users)
+        return posts.order_by('-created_at')
 
 
 class PostDetailView(DetailView):
@@ -61,3 +64,33 @@ class PostsAddView(CreateView):
         return self.render_to_response(context={
             'form': form,
         })
+
+
+class LikePostView(View):
+    def post(self, request, *args, **kwargs):
+        account = get_user_model()
+        user_id = self.request.user.pk
+        user = account.objects.get(pk=user_id)
+        post = Post.objects.get(pk=kwargs.get('pk'))
+
+        # Like post
+        post.liked_users.add(user)
+        user.liked_posts.add(post)
+
+        # Redirect to the same page
+        return redirect('post_detail', pk=kwargs.get('pk'))
+
+
+class UnlikePostView(View):
+    def post(self, request, *args, **kwargs):
+        account = get_user_model()
+        user_id = self.request.user.pk
+        user = account.objects.get(pk=user_id)
+        post = Post.objects.get(pk=kwargs.get('pk'))
+
+        # Like post
+        post.liked_users.remove(user)
+        user.liked_posts.remove(post)
+
+        # Redirect to the same page
+        return redirect('post_detail', pk=kwargs.get('pk'))

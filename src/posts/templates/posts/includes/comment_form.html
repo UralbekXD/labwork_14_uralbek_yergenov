@@ -1,0 +1,5 @@
+<form action="{% url 'comment_post' post.pk %}" method="POST" class="post-comment-form border-top p-3 d-flex flex-wrap">
+    {% csrf_token %}
+    <input type="text" name="text" class="post-comment-input flex-grow-1" placeholder="Добавьте комментарий...">
+    <button type="submit" class="post-comment-button text-primary">Опубликовать</button>
+</form>

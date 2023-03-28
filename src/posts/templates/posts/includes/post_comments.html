@@ -1,19 +1,16 @@
-<div class="comment">
+<div class="comment d-flex flex-wrap">
     <div class="avatar">
-        <img class="avatar user-select-none" src="{{ user_search.avatar.url }}" alt="avatar">
+        <img class="avatar user-select-none" src="{{ comment.author.avatar.url }}" alt="avatar">
     </div>
 
-    <div class="text ms-3">
+    <div class="text ms-3 flex-grow-1">
         <div class="username">
             <strong>
-                <a href="{% url 'profile' user_search.pk %}">
-                    {{ user_search.username }}
+                <a href="{% url 'profile' comment.author.pk %}">
+                    {{ comment.author.username }}
                 </a>
             </strong>
-        </div>
-
-        <div class="full_name">
-            {{ user_search.get_full_name }}
+            <span class="ms-1">{{ comment.text }}</span>
         </div>
     </div>
 </div>

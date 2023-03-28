@@ -51,12 +51,12 @@
     transform: scaleX(-1);
 }
 
-.fa-comment:hover {
-    color: dodgerblue;
+.liked {
+    color: red;
 }
 
-.fa-heart:hover {
-    color: red;
+.unliked {
+    color: black;
 }
 
 .date {

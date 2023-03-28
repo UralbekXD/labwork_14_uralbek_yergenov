@@ -1,6 +1,6 @@
 <form action="{% url 'like_post' post.pk %}" method="POST">
     {% csrf_token %}
-    <button type="submit" class="like">
-        <i class="fa-regular fa-heart fa-xl"></i>
+    <button type="submit" class="border-0 bg-transparent">
+        <i class="fa-regular fa-heart fa-xl unliked"></i>
     </button>
 </form>

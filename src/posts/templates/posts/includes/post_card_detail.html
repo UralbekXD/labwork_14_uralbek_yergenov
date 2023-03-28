@@ -15,12 +15,12 @@
             </div>
 
             <div class="option ms-auto">
-                <span role="button" data-bs-target="#options{{ post.pk }}" data-bs-toggle="modal">
+                <span role="button" data-bs-target="#options" data-bs-toggle="modal">
                     <i class="fa-solid fa-ellipsis"></i>
                 </span>
             </div>
 
-            <div class="modal fade" id="options{{ post.pk }}">
+            <div class="modal fade" id="options">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
                         <ul class="list-group">
@@ -90,5 +90,14 @@
         </div>
 
         {% include 'posts/includes/comment_form.html' %}
+
+        {% if post.comments.all.count > 0 %}
+            <div class="comments border-top p-3 d-flex flex-column gap-3">
+                {% for comment in post.comments.all %}
+                    {% include 'posts/includes/post_comments.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
     </div>
 </div>
