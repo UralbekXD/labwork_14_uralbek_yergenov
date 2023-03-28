@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import get_user_model
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 
 from posts.models import Post
@@ -35,10 +36,13 @@ class PostsListView(ListView):
 
     def get_queryset(self):
         account = get_user_model()
-        user = account.objects.get(pk=self.request.user.pk)
-        followed_users = user.following.all()
-        posts = Post.objects.filter(author__in=followed_users)
-        return posts.order_by('-created_at')
+        if self.request.user.is_authenticated:
+            user = account.objects.get(pk=self.request.user.pk)
+            followed_users = user.following.all()
+            posts = Post.objects.filter(author__in=followed_users)
+            return posts.order_by('-created_at')
+
+        return Post.objects.all().order_by('-created_at')
 
 
 class PostDetailView(DetailView):
@@ -47,7 +51,7 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
 
 
-class PostsAddView(CreateView):
+class PostsAddView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostAddForm
     template_name = 'posts/posts_create.html'
@@ -66,7 +70,7 @@ class PostsAddView(CreateView):
         })
 
 
-class LikePostView(View):
+class LikePostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         account = get_user_model()
         user_id = self.request.user.pk
@@ -81,7 +85,7 @@ class LikePostView(View):
         return redirect('post_detail', pk=kwargs.get('pk'))
 
 
-class UnlikePostView(View):
+class UnlikePostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         account = get_user_model()
         user_id = self.request.user.pk

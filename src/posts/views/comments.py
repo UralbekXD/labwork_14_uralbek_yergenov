@@ -1,12 +1,13 @@
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import get_user_model
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from posts.models import Post
 from posts.models import Comment
 
 
-class CommentPostView(CreateView):
+class CommentPostView(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = 'posts/posts_list.html'
 
