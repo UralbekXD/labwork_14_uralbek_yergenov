@@ -1,0 +1,123 @@
+[
+{
+    "model": "accounts.account",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$sJhUSaODNzOLfLwV6NqF0L$rEiM4jFvjogFYVfpT5WnPiVHvgTmMRCYVNTnFuyrzdM=",
+        "last_login": "2023-03-28T12:20:58.221Z",
+        "is_superuser": true,
+        "username": "root",
+        "first_name": "root",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-03-26T16:56:46Z",
+        "email": "root@gmail.com",
+        "avatar": "avatars/hw-4.jpg",
+        "about": "",
+        "phone_number": null,
+        "gender": null,
+        "groups": [],
+        "user_permissions": [],
+        "following": [
+            3,
+            4,
+            2
+        ],
+        "liked_posts": [
+            1
+        ],
+        "commented_posts": []
+    }
+},
+{
+    "model": "accounts.account",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$iJvWyOfjMnx1xgRBAx6z6K$FH/ytFfNN8pzaU4VPoHloRgrWHJeOhF+1jXd8RZ3J64=",
+        "last_login": "2023-03-28T11:22:10.832Z",
+        "is_superuser": false,
+        "username": "ural",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-03-26T16:58:32Z",
+        "email": "uralbek@gmail.com",
+        "avatar": "avatars/IMG_20201227_021340_Ts6HEkz.jpg",
+        "about": "",
+        "phone_number": null,
+        "gender": null,
+        "groups": [],
+        "user_permissions": [],
+        "following": [
+            3,
+            1
+        ],
+        "liked_posts": [
+            1,
+            7,
+            2
+        ],
+        "commented_posts": []
+    }
+},
+{
+    "model": "accounts.account",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$o6pO96d7NVtIXdor7c4wPi$JGy+jqgzNeF0bLqaOwuKjnnq/B3TmXmOamEAbhcXSTg=",
+        "last_login": "2023-03-28T11:51:54.515Z",
+        "is_superuser": false,
+        "username": "uralbek_yergenov",
+        "first_name": "Uralbek",
+        "last_name": "Yergenov",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-03-27T07:13:15.315Z",
+        "email": "uralbek.yergenov@gmail.com",
+        "avatar": "avatars/apple.jpg",
+        "about": "i love solving coding problems in LeetCode!",
+        "phone_number": null,
+        "gender": "male",
+        "groups": [],
+        "user_permissions": [],
+        "following": [
+            2,
+            1,
+            4
+        ],
+        "liked_posts": [],
+        "commented_posts": []
+    }
+},
+{
+    "model": "accounts.account",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$jD8QOeGXGS6F8rblK1wRsF$EWzwS9UTWyxOr6dnM5wnvrZwyisCeH1/xvQ7NV4vb5w=",
+        "last_login": "2023-03-28T08:26:56.482Z",
+        "is_superuser": false,
+        "username": "meko",
+        "first_name": "Meko",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-03-27T07:27:34.466Z",
+        "email": "meko@gmail.com",
+        "avatar": "avatars/macbook.jpg",
+        "about": "",
+        "phone_number": null,
+        "gender": "male",
+        "groups": [],
+        "user_permissions": [],
+        "following": [
+            2
+        ],
+        "liked_posts": [
+            1
+        ],
+        "commented_posts": []
+    }
+}
+]

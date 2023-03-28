@@ -24,4 +24,6 @@ class CommentPostView(LoginRequiredMixin, CreateView):
                 text=text,
             )
 
+            post.commented_users.add(author)
+            author.commented_posts.add(post)
         return redirect('post_detail', pk=kwargs.get('post_id'))

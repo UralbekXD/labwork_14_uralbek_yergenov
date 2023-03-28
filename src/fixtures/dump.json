@@ -1,0 +1,211 @@
+[
+{
+    "model": "posts.post",
+    "pk": 1,
+    "fields": {
+        "author": 2,
+        "images": "posts/1.jpg",
+        "description": "Beautiful sunset",
+        "created_at": "2023-03-26T16:59:46.458Z",
+        "updated_at": "2023-03-26T16:59:46.458Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "images": "posts/2.jpg",
+        "description": "Italy",
+        "created_at": "2023-03-27T04:53:39.124Z",
+        "updated_at": "2023-03-27T04:53:39.124Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 3,
+    "fields": {
+        "author": 2,
+        "images": "posts/3.jpg",
+        "description": "Arctic night",
+        "created_at": "2023-03-27T10:22:36.186Z",
+        "updated_at": "2023-03-27T10:22:36.186Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 4,
+    "fields": {
+        "author": 2,
+        "images": "posts/4.jpg",
+        "description": "China",
+        "created_at": "2023-03-27T10:26:28.199Z",
+        "updated_at": "2023-03-27T10:26:28.199Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 5,
+    "fields": {
+        "author": 2,
+        "images": "posts/macbook.jpg",
+        "description": "Got my first macbook!",
+        "created_at": "2023-03-27T10:42:45.552Z",
+        "updated_at": "2023-03-27T10:42:45.552Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 6,
+    "fields": {
+        "author": 3,
+        "images": "posts/Landscape-Color.jpg",
+        "description": "Landscape",
+        "created_at": "2023-03-27T13:18:02.759Z",
+        "updated_at": "2023-03-27T13:18:02.759Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 7,
+    "fields": {
+        "author": 3,
+        "images": "posts/cat.jpg",
+        "description": "Some cat",
+        "created_at": "2023-03-27T13:19:50.354Z",
+        "updated_at": "2023-03-27T13:19:50.354Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 8,
+    "fields": {
+        "author": 4,
+        "images": "posts/photo_2022-06-21_19.07.35.jpeg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has sur",
+        "created_at": "2023-03-27T14:07:04.577Z",
+        "updated_at": "2023-03-27T14:07:04.577Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 9,
+    "fields": {
+        "author": 4,
+        "images": "posts/photo_2022-06-21_19.07.26.jpeg",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has sur",
+        "created_at": "2023-03-27T14:07:13.291Z",
+        "updated_at": "2023-03-27T14:07:13.291Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 1,
+    "fields": {
+        "author": 2,
+        "post": 1,
+        "text": "Leave the comments below if you think otherwise!",
+        "created_at": "2023-03-26T17:00:44.778Z",
+        "updated_at": "2023-03-26T17:00:44.778Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "post": 1,
+        "text": "i think its morning... you dumbass",
+        "created_at": "2023-03-26T17:03:59.109Z",
+        "updated_at": "2023-03-26T17:03:59.109Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 4,
+    "fields": {
+        "author": 1,
+        "post": 1,
+        "text": "test",
+        "created_at": "2023-03-28T10:22:28.861Z",
+        "updated_at": "2023-03-28T10:22:28.862Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 6,
+    "fields": {
+        "author": 2,
+        "post": 2,
+        "text": "Альпы",
+        "created_at": "2023-03-28T11:22:17.914Z",
+        "updated_at": "2023-03-28T11:22:17.914Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 7,
+    "fields": {
+        "author": 2,
+        "post": 2,
+        "text": "test",
+        "created_at": "2023-03-28T11:25:43.515Z",
+        "updated_at": "2023-03-28T11:25:43.515Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 8,
+    "fields": {
+        "author": 1,
+        "post": 9,
+        "text": "test",
+        "created_at": "2023-03-28T12:21:07.799Z",
+        "updated_at": "2023-03-28T12:21:07.799Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 9,
+    "fields": {
+        "author": 1,
+        "post": 9,
+        "text": "abc",
+        "created_at": "2023-03-28T12:21:14.431Z",
+        "updated_at": "2023-03-28T12:21:14.431Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 10,
+    "fields": {
+        "author": 1,
+        "post": 8,
+        "text": "test for commented_posts",
+        "created_at": "2023-03-28T12:41:58.313Z",
+        "updated_at": "2023-03-28T12:41:58.313Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 11,
+    "fields": {
+        "author": 1,
+        "post": 8,
+        "text": "test for commented_posts one more",
+        "created_at": "2023-03-28T12:46:35.425Z",
+        "updated_at": "2023-03-28T12:46:35.425Z"
+    }
+},
+{
+    "model": "posts.comment",
+    "pk": 12,
+    "fields": {
+        "author": 1,
+        "post": 8,
+        "text": "test for commented_posts one more another",
+        "created_at": "2023-03-28T12:52:23.445Z",
+        "updated_at": "2023-03-28T12:52:23.445Z"
+    }
+}
+]
