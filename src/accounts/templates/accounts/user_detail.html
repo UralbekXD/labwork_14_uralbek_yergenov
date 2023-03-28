@@ -21,15 +21,27 @@
                 <div class="detail flex-grow-1">
                     <div class="username d-flex align-items-center flex-wrap">
                         <span class="lead fs-3">{{ user_obj.username }}</span>
-                        <a href="#" class="btn btn-sm btn-light border ms-3">
-                            Редактировать профиль
-                        </a>
-
-                        <form action="{% url 'follow' %}" method="POST">
-                            <button type="submit">
-                                Подписаться
-                            </button>
-                        </form>
+                        {% if user_obj == user %}
+                            <a href="{% url 'profile_edit' user_obj.pk %}" class="btn btn-sm btn-light border ms-3">
+                                Редактировать профиль
+                            </a>
+                        {% else %}
+                            {% if user in user_obj.followers.all %}
+                                <form action="{% url 'unfollow' user_obj.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-light border ms-3">
+                                        Отписаться
+                                    </button>
+                                </form>
+                            {% else %}
+                                <form action="{% url 'follow' user_obj.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-light border ms-3">
+                                        Подписаться
+                                    </button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
                     </div>
 
                     <div class="counters d-flex gap-4 flex-wrap mb-3">

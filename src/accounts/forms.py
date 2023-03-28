@@ -7,6 +7,12 @@ class LoginForm(forms.Form):
     password = forms.CharField(required=True, label='Пароль', widget=forms.PasswordInput)
 
 
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['first_name', 'last_name', 'avatar', 'about']
+
+
 class SignUpForm(forms.ModelForm):
     password = forms.CharField(
         label="Пароль",
